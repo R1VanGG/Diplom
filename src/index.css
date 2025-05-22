@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary-50: 236 246 254;
+    --color-primary-100: 207 231 253;
+    --color-primary-200: 165 209 251;
+    --color-primary-300: 107 177 246;
+    --color-primary-400: 66 153 240;
+    --color-primary-500: 37 131 232;
+    --color-primary-600: 25 104 196;
+    --color-primary-700: 28 85 157;
+    --color-primary-800: 28 71 129;
+    --color-primary-900: 26 59 105;
+    --color-primary-950: 18 37 67;
+    
+    --color-secondary-50: 237 248 250;
+    --color-secondary-100: 210 240 244;
+    --color-secondary-200: 172 227 236;
+    --color-secondary-300: 120 204 222;
+    --color-secondary-400: 72 181 208;
+    --color-secondary-500: 40 158 187;
+    --color-secondary-600: 29 134 164;
+    --color-secondary-700: 28 109 135;
+    --color-secondary-800: 30 89 111;
+    --color-secondary-900: 29 74 93;
+    --color-secondary-950: 17 48 61;
+    
+    --color-success-50: 236 253 245;
+    --color-success-100: 209 250 229;
+    --color-success-200: 167 243 208;
+    --color-success-300: 110 231 183;
+    --color-success-400: 52 211 153;
+    --color-success-500: 16 185 129;
+    --color-success-600: 5 150 105;
+    --color-success-700: 4 120 87;
+    --color-success-800: 6 95 70;
+    --color-success-900: 6 78 59;
+    --color-success-950: 2 44 34;
+    
+    --color-warning-50: 255 247 237;
+    --color-warning-100: 255 237 213;
+    --color-warning-200: 254 215 170;
+    --color-warning-300: 253 186 116;
+    --color-warning-400: 251 146 60;
+    --color-warning-500: 249 115 22;
+    --color-warning-600: 234 88 12;
+    --color-warning-700: 194 65 12;
+    --color-warning-800: 154 52 18;
+    --color-warning-900: 124 45 18;
+    --color-warning-950: 67 20 7;
+    
+    --color-error-50: 254 242 242;
+    --color-error-100: 254 226 226;
+    --color-error-200: 254 202 202;
+    --color-error-300: 252 165 165;
+    --color-error-400: 248 113 113;
+    --color-error-500: 239 68 68;
+    --color-error-600: 220 38 38;
+    --color-error-700: 185 28 28;
+    --color-error-800: 153 27 27;
+    --color-error-900: 127 29 29;
+    --color-error-950: 69 10 10;
+    
+    --color-neutral-50: 248 250 252;
+    --color-neutral-100: 241 245 249;
+    --color-neutral-200: 226 232 240;
+    --color-neutral-300: 203 213 225;
+    --color-neutral-400: 148 163 184;
+    --color-neutral-500: 100 116 139;
+    --color-neutral-600: 71 85 105;
+    --color-neutral-700: 51 65 85;
+    --color-neutral-800: 30 41 59;
+    --color-neutral-900: 15 23 42;
+    --color-neutral-950: 8 12 24;
+    
+    --background: 248 250 252;
+    --foreground: 15 23 42;
+    
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+  }
+  
+  * {
+    @apply border-neutral-200;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium leading-[1.2] text-neutral-900;
+  }
+  
+  p, li, span {
+    @apply leading-[1.5] text-neutral-700;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-lg border border-neutral-200 bg-white shadow-sm transition-all;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors 
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none 
+    disabled:opacity-50 h-10 px-4 py-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus-visible:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-600 text-white hover:bg-secondary-700 focus-visible:ring-secondary-500;
+  }
+  
+  .btn-outline {
+    @apply border border-neutral-300 bg-transparent hover:bg-neutral-100 text-neutral-700 focus-visible:ring-neutral-500;
+  }
+  
+  .btn-ghost {
+    @apply bg-transparent hover:bg-neutral-100 text-neutral-700 focus-visible:ring-neutral-500;
+  }
+  
+  .input {
+    @apply flex h-10 w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-sm 
+    placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 
+    focus:border-transparent disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Animation for sidebar categories */
+  .sidebar-category-expand-enter {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  
+  .sidebar-category-expand-enter-active {
+    max-height: 1000px;
+    opacity: 1;
+    transition: max-height 300ms ease-in-out, opacity 300ms ease-in-out;
+  }
+  
+  .sidebar-category-expand-exit {
+    max-height: 1000px;
+    opacity: 1;
+    overflow: hidden;
+  }
+  
+  .sidebar-category-expand-exit-active {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 300ms ease-in-out, opacity 300ms ease-in-out;
+  }
+}
